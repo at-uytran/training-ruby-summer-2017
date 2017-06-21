@@ -73,11 +73,4 @@ gem search -r
 ```
 gem list
 ```
-### insert content to a box
-when we want to insert content to a box 
-```css
-box ::after{
-	display content
-}
-```
 
