@@ -1,1 +1,1 @@
-# training-ruby-summer-2017
+# dailly_report_2017_06-07
