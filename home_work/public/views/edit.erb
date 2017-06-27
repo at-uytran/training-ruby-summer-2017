@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOOK</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+</head>
+<body>
+<header>
+	<h1>Edit book</h1>
+</header>
+<main>
+	<form action="/edit"  method="post">
+		<% @results.each do |row|%>
+			<label>Id</label><br>
+			<input type="text" name="id" value="<%= row[ 'id' ] %>"><br>
+			<label>Ten Sach</label><br>
+			<input type="text" name="bookname" value="<%= row[ 'bookname' ] %>"><br>
+			<label>Na Xuat Ban</label><br>
+			<input type="text" name="nxb" value="<%= row['nxb'] %>"><br>
+			<label>Tac gia</label><br>
+			<input type="author" name="author" value="<%= row['author'] %>"><br>
+		<%end%>
+		<button type="submit">Save</button>
+	</form>
+</main>
+<footer>
+	
+</footer>
+</body>
+</html>
