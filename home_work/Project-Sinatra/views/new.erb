@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOOK</title>
+</head>
+<body>
+<header>
+	<h1>New Book</h1>
+</header>
+<main>
+	<form action="/insert" method="post" enctype="multipart/form-data">
+		<label>Ten Sach</label><br>
+		<input type="text" name="name"><br>
+		<label>Nha xuat ban</label><br>
+		<input type="text" name="nxb"><br>
+		<label>Tac gia</label><br>
+		<input type="author" name="author"><br>
+		<label>Hinh sach</label>
+		<input type="file" name="file"><br>
+		<label>Gia ban</label><br>
+		<input type="text" name="price"><br>
+		<label>The loai sach</label><br>
+		<input type="text" name="booktype"><br>
+		<!-- <select>
+		  <option value="IT">IT</option>
+		  <option value="KT">Kien truc</option>
+		  <option value="PTBT">Phat trien ban than</option>
+		  <option value="VP">Van phong</option>
+		</select><br> -->
+		<button type="submit">Them</button><br>
+	</form>
+</main>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Store</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+<header class="clr">
+<div class="home">
+	<h1>Book Store</h1>
+	<a href="/" >Home<img src="../images/logo.png"></a>
+</div>
+<nav class="container">
+	<div class="menu">
+		<ul>
+		<li><a href="/bookstore">Trang chủ</a></li>
+		<li><a href="/about">Giới thiệu</a></li>
+		<li><a href="/book/manage">Quản lý sách</a></li>
+		<li><a href="/book/shopcart">Gio hang</a></li>
+		<li><a href="/login">Dang Nhap</a>
+		<a href="/signin">Dang ky</a>	</li>
+		</ul>
+	</div>				
+	</nav>
+</header>
+<main class="clr">
+<div class="left-nav">
+	<h1>Left</h1>
+</div>
+<div class="container">
+	<div class="leftsubmenu">
+		<ul>
+		<li><a href="/bookstore">Trang chủ</a></li>
+		<li><a href="/about">Giới thiệu</a></li>
+		<li><a href="/book/manage">Quản lý sách</a></li>
+		<li><a href="/book/shopcart">Gio hang</a></li>
+	</div>
+	<div class="products">
+	<% @results.each do |row|%>
+	<div class="item">
+			<ul>
+			<li><a href="#"><img src="../images/products/<%=row['bookimage']%>"></a></li>
+			<li><a href="#"><%=row['bookname'].to_s%></a></li>
+			<li><%=row['description'].to_s%></li>
+			<li><%=row['author'].to_s%></li>
+			<li><%=row['price'].to_s%></li>
+			<li><a href="#">Them vao gio</a></li>
+			</ul>
+		</div>
+	<%end%>
+</div>
+</div>
+
+	
+</main>
+<footer class="clr">
+	<div class="footinfo">
+		
+	</div>
+</footer>
+</body>
+</html>
