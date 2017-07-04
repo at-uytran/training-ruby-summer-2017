@@ -37,7 +37,11 @@ class MyApp<Sinatra::Base
 		File.open("./public/#{path}", 'wb') do |f|
 			f.write(file.read)
 		end
-		query = "UPDATE book SET bookname = '#{params[:bookname]}',description = '#{:description}', nxb = '#{params[:nxb]}', author = '#{params[:author]}',price = '#{:price}',booktype= '#{:booktype}' WHERE id ='#{params[:id]}'"
+		query = "UPDATE book SET bookname =
+		 \'#{params['name']}\',description = \'#{params['description']}\', 
+		 nxb = \'#{params['nxb']}\', author = \'#{params['author']}\',
+		 price = \'#{params['price']}\',booktype= \'#{params['booktype']}\',
+		 bookimage= \'#{@filename}\' WHERE id =\'#{params[:id]}\'"
 		@update = connection.query(query)
 		redirect'/book/manage'
 		erb :manage
@@ -50,13 +54,15 @@ class MyApp<Sinatra::Base
 	end
 	
 	post '/insert' do
-		filename = params[:file][:filename]
+		@filename = params[:file][:filename]
 		file = params[:file][:tempfile]
 		path = "images/products/#{@filename}"
 		File.open("./public/#{path}", 'wb') do |f|
 			f.write(file.read)
 		end
-		query = "INSERT INTO book (bookname,description,nxb,author,price,booktype,bookimage) VALUES (\'#{params['name']}\',\'#{params['description']}\',\'#{params['nxb']}\',\'#{params['author']}\',\'#{params['price']}\',\'#{params['booktype']}\',\'#{filename}\')"
+		query = "INSERT INTO book (bookname,description,nxb,author,price,booktype,bookimage) 
+		VALUES (\'#{params['name']}\',\'#{params['description']}\',\'#{params['nxb']}\',
+		\'#{params['author']}\',\'#{params['price']}\',\'#{params['booktype']}\',\'#{@filename}\')"
 		@book = connection.query(query)
 		redirect '/bookstore'
 		erb :manage

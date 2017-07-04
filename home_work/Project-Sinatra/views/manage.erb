@@ -5,7 +5,15 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-<form action="/book/manage/new" method="get">
+<header>
+	
+</header>
+<main class="clr">
+	<div class="leftsubmenu">
+	
+</div>
+<div class="products">
+	<form action="/book/manage/new" method="get">
 		<button>Them Sach</button>
 	</form>
 	<table title="book information">
@@ -25,10 +33,16 @@
 	    <td><%=row['nxb'].to_s%></td>
 	    <td><%=row['author'].to_s%></td>
 	    <td><img src="../images/products/<%=row['bookimage']%>"></td>
-	    <td><a href="/book/delete/<%= row[ 'id' ] %>">delete</a>
+	    <td><a href="/book/delete/<%= row[ 'id' ] %>" onClick="return confirm('Are you sure you want to delete?')">delete</a>
 	    <a href="/book/edit/<%= row[ 'id' ] %>">edit</a></td>
 	  </tr>
 	<%end%>
 </table>
+</div>
+
+</main>
+<footer>
+	
+</footer>
 </body>
 </html>
