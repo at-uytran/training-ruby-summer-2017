@@ -1,27 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>BOOK</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body>
-<header>
-	<h1>New Book</h1>
-</header>
-<main class="clr">
-<div class="new">
-	<form action="/insert" method="post" enctype="multipart/form-data">
-		<label>Ten Sach</label><br>
-		<input type="text" name="name"><br>
-		<label>Nha xuat ban</label><br>
-		<input type="text" name="nxb"><br>
-		<label>Tac gia</label><br>
+<div class="abc">
+	
+	<form accept-charset="UTF-8" action="/insert" method="post" enctype="multipart/form-data">
+		<label>Tên Sách</label><br>
+		<input type="text" name="bookname"><br>
+		<label>Mô tả sách</label><br>
+		<input type="text" name="description"><br>
+		<label>Nhà xuất bản</label><br>
+		<input type="text" name="publisher"><br>
+		<label>Tác gỉa</label><br>
 		<input type="author" name="author"><br>
-		<label>Hinh sach</label>
+		<label>Hình sách</label><br>
 		<input type="file" name="file"><br>
-		<label>Gia ban</label><br>
+		<label>Gía bán</label><br>
 		<input type="text" name="price"><br>
-		<label>The loai sach</label><br>
+		<label>Thể loại sách</label><br>
 		<input type="text" name="booktype"><br>
 		<!-- <select>
 		  <option value="IT">IT</option>
@@ -31,10 +23,5 @@
 		</select><br> -->
 		<button type="submit">Them</button><br>
 	</form>
+
 </div>
-</main>
-<footer>
-	
-</footer>
-</body>
-</html>

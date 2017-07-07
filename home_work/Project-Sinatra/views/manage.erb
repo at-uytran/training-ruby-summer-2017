@@ -1,48 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Book management</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body>
-<header>
-	
-</header>
-<main class="clr">
-	<div class="leftsubmenu">
-	
-</div>
-<div class="products">
-	<form action="/book/manage/new" method="get">
-		<button>Them Sach</button>
-	</form>
-	<table title="book information">
+		<table title="book information">
 	<tr>
-	    <th>Id</th>
+	    <th>Id Sách</th>
 	    <th>Book Name</th> 
-	    <th>Nha xuat ban</th>
-	    <th>Tac Gia</th>
-	    <th>Hinh anh</th>
+	    <th>Nhà xuất bản</th>
+	    <th>Tác Gỉa</th>
+	    <th>Hình ảnh</th>
 	    <th>Option</th>
-
 	</tr>
 	<tr>
 	  <% @results.each do |row|%>
 	    <td><%=row['id'].to_s%></td>
 	    <td><%=row['bookname'].to_s%></td> 
-	    <td><%=row['nxb'].to_s%></td>
+	    <td><%=row['publisher'].to_s%></td>
 	    <td><%=row['author'].to_s%></td>
-	    <td><img src="../images/products/<%=row['bookimage']%>"></td>
+	    <td><img src="<%= url(row['bookimage']) %>"></td>
 	    <td><a href="/book/delete/<%= row[ 'id' ] %>" onClick="return confirm('Are you sure you want to delete?')">delete</a>
 	    <a href="/book/edit/<%= row[ 'id' ] %>">edit</a></td>
 	  </tr>
 	<%end%>
 </table>
-</div>
-
-</main>
-<footer>
-	
-</footer>
-</body>
-</html>
+<form action="/book/manage/new" method="get">
+		<button><a href="/book/manage/new"></a> Them Sach</button>
+	</form>

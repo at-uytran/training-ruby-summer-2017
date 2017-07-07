@@ -1,80 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Book Store</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body>
-<header>
-<div class="first">
-	<div class="container">
-		<div id="home">
-			<img src="../images/logo.png">
-			<h1>BOOK STORE</h1>
-			<h2>BOOK LIBRARY</h2>
-		</div>
-		<div id="support">
-			<img src="../images/icon/phone-icon.png">
-			<h2>Lien he nha sach</h2>
-			<h3>05113941977</h3>
-		</div>	
-	</div>
-</div>
-		<nav class="menu">
-			<div class="container">
-				<ul>
-				<li><a href="/bookstore">Trang chủ</a></li>
-				<li><a href="/about">Giới thiệu</a></li>
-				<li><a href="/book/manage">Quản lý sách</a></li>
-				<li><a href="/book/shopcart">Gio hang</a></li>
-				<li><a href="/login">Dang Nhap</a>
-				<a href="/signin">Dang ky</a>	</li>
-				</ul>
-			</div>	
-		</nav>
-<div class="middle">
-		<div class="container">
-			<span>
-				<a href="/bookstore">TRANG CHỦ/</a>
-				<a href="/book/manage">BOOK LIST</a>
-			</span>
-		</div>
-	</div>
-</header>
-
-
-<main class="clr">
-<div class="container">
-	<div class="leftsubmenu">
-		<ul>
-		<li><a href="/bookstore">Trang chủ</a></li>
-		<li><a href="/about">Giới thiệu</a></li>
-		<li><a href="/book/manage">Quản lý sách</a></li>
-		<li><a href="/book/shopcart">Gio hang</a></li>
-	</div>
-	<div class="products">
 	<% @results.each do |row|%>
 	<div class="item">
 			<ul>
-			<li><a href="#"><img src="../images/products/<%=row['bookimage']%>"></a></li>
+			<li><a href="#"><img src="<%= url(row['bookimage']) %>"></a></li>
 			<li><a href="#"><%=row['bookname'].to_s%></a></li>
 			<li><%=row['description'].to_s%></li>
 			<li><%=row['author'].to_s%></li>
 			<li><%=row['price'].to_s%></li>
-			<li><a href="#">Them vao gio</a></li>
+			<li><a href="#">Thêm vào giỏ</a></li>
 			</ul>
 		</div>
 	<%end%>
-</div>
-</div>
-
-	
-</main>
-<footer class="clr">
-	<div class="footinfo">
-		
-	</div>
-</footer>
-</body>
-</html>

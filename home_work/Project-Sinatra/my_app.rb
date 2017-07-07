@@ -1,10 +1,11 @@
 require "mysql2"
-
+require "pry"
 class MyApp<Sinatra::Base
 	@@host_name = "localhost"
 	@@user_name = "root"
 	@@password = "avicii"
 	@@database  ="book_shelf"
+
 	client = Mysql2::Client.new(:host => @@host_name, :username => @@user_name,:password=>@@password, :database =>@@database)
 	connection = Mysql2::Client.new(:host => @@host_name, :username => @@user_name,:password=>@@password, :database =>@@database)
 	get '/about' do
@@ -12,11 +13,11 @@ class MyApp<Sinatra::Base
 	end
 
 	get'/bookstore' do
-		@results = client.query("SELECT * FROM book")
+		@results = client.query("SELECT * FROM books")
 		erb :index
 	end
 	get '/book/manage' do
-		@results = client.query("SELECT * FROM book")
+		@results = client.query("SELECT * FROM books")
 		erb :manage
 	end
 
@@ -27,7 +28,7 @@ class MyApp<Sinatra::Base
 		erb :shopcart
 	end
 	get '/book/edit/:id' do
-		@results = client.query("SELECT *  FROM book WHERE id = #{params[:id]}")
+		@results = client.query("SELECT *  FROM books WHERE id = #{params[:id]}")
 		erb :edit
 	end
 	post '/edit' do
@@ -37,17 +38,17 @@ class MyApp<Sinatra::Base
 		File.open("./public/#{path}", 'wb') do |f|
 			f.write(file.read)
 		end
-		query = "UPDATE book SET bookname =
-		 \'#{params['name']}\',description = \'#{params['description']}\', 
-		 nxb = \'#{params['nxb']}\', author = \'#{params['author']}\',
+		query = "UPDATE books SET bookname =
+		 \'#{params['bookname']}\',description = \'#{params['description']}\', 
+		 publisher = \'#{params['publisher']}\', author = \'#{params['author']}\',
 		 price = \'#{params['price']}\',booktype= \'#{params['booktype']}\',
-		 bookimage= \'#{@filename}\' WHERE id =\'#{params[:id]}\'"
+		 bookimage= \'#{path}\' WHERE id =\'#{params[:id]}\'"
 		@update = connection.query(query)
 		redirect'/book/manage'
 		erb :manage
 	end
 	get '/book/delete/:id' do
-		query = "DELETE FROM book WHERE id  = #{params['id']}"
+		query = "DELETE FROM books WHERE id  = #{params['id']}"
 		@delete = connection.query(query)
 		redirect '/book/manage'
 		erb :manage
@@ -60,11 +61,15 @@ class MyApp<Sinatra::Base
 		File.open("./public/#{path}", 'wb') do |f|
 			f.write(file.read)
 		end
-		query = "INSERT INTO book (bookname,description,nxb,author,price,booktype,bookimage) 
-		VALUES (\'#{params['name']}\',\'#{params['description']}\',\'#{params['nxb']}\',
-		\'#{params['author']}\',\'#{params['price']}\',\'#{params['booktype']}\',\'#{@filename}\')"
+		query = "INSERT INTO books (`bookname`, `description`, `publisher`, `author`, `price`, `booktype`, `bookimage`) 
+		VALUES (\'#{params['bookname']}\', \'#{params['description']}\', \'#{params['publisher']}\', 
+		\'#{params['author']}\', \'#{params['price']}\', \'#{params['booktype']}\', \'#{path}\')"
+
 		@book = connection.query(query)
-		redirect '/bookstore'
+		redirect '/book/manage'
 		erb :manage
 	end
+		  
+
+
 end
