@@ -1,0 +1,27 @@
+
+<%= form_for :user , :url => {:action => 'create', :method => 'post'} do |f| %>
+      
+      <%= f.label :name %>
+      <%= f.text_field :name %><br>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %><br>
+
+      
+      <%= f.label :birthday %>
+      <%= f.datetime_local_field :birthday %><br>
+
+      <%= f.label :gender %>
+      <%= f.text_field :gender %><br>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %><br>
+
+      <%= f.label 'user name' %>
+      <%= f.text_field :user_name %><br>
+
+
+    <%= f.submit "Create user" %><br>
+
+<% end %>
+
