@@ -1,0 +1,47 @@
+<%= form_for(@user) do |f| %>
+      <%  if  @user.errors.any?  %>
+          <div  id="error_explanation">
+              <h2>
+                  <%= pluralize(@user.errors.count,  "error")  %>  prohibited
+                  this  article from  being saved:
+              </h2>
+              <div class="alert alert-error">
+                        <ul>
+                        <%  @user.errors.full_messages.each  do  |msg| %>
+                            <li><%= msg %></li>
+                        <%  end %>
+                    </ul>
+                    </div>
+          </div>
+      <%  end %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %><br>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %><br>
+
+      
+      <%= f.label :birthday %>
+      <%= f.date_field :birthday, class: 'form-control' %><br>
+
+      <%= f.label :gender %>
+      <%= f.text_field :gender, class: 'form-control' %><br>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %><br>
+
+      <%= f.label 'user name' %>
+      <%= f.text_field :user_name, class: 'form-control' %><br>
+
+     
+      <%= f.submit "Save changes", class: "btn btn-primary" %><br>
+<% end %>
+
+      <button onclick="back()">Back</button>
+      <script>
+        function back(){
+
+          window.history.back();
+        };
+      </script>

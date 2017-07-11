@@ -1,27 +1,9 @@
+<% provide(:user, "Edit user") %>
+<h1>Update your profile</h1>
 
-<%= form_for :user , :url => {:action => 'create', :method => 'post'} do |f| %>
-      
-      <%= f.label :name %>
-      <%= f.text_field :name %><br>
+<div class="form-group">
+  <div class="col-md-6 col-md-offset-3">
 
-      <%= f.label :email %>
-      <%= f.email_field :email %><br>
-
-      
-      <%= f.label :birthday %>
-      <%= f.datetime_local_field :birthday %><br>
-
-      <%= f.label :gender %>
-      <%= f.text_field :gender %><br>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %><br>
-
-      <%= f.label 'user name' %>
-      <%= f.text_field :user_name %><br>
-
-
-    <%= f.submit "Create user" %><br>
-
-<% end %>
-
+    <%= render 'form' %>
+  </div>
+</div>

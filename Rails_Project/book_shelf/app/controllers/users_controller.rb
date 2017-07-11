@@ -4,10 +4,16 @@ class UsersController < ApplicationController
 
 	# binding.pry
 	end
+	def new
+		@user = User.new
+	end
 	def create
-		@users = User.new(user_params)
-		@users.save
-		redirect_to users_path
+		@user = User.new(user_params)
+		if @user.save
+			redirect_to users_path
+		else
+			render 'new'
+		end
 	end
 	def destroy
 	    User.find(params[:id]).destroy
@@ -18,15 +24,13 @@ class UsersController < ApplicationController
 	def update
 
 		@user = User.find(params[:id])
-		@user.update_attributes(user_params)
+		if @user.update_attributes(user_params)
 			# binding.pry
 	      	redirect_to @user
 		# Handle a successful update.
-		
-      		# render 'edit'
-		
-	      
-				# User.find(params[:id]).update_attributes(user_params)
+		else
+      		render 'edit'
+		end
 	end
 
 	def edit
@@ -35,13 +39,12 @@ class UsersController < ApplicationController
 
 	def show
 	    @user = User.find(params[:id])
-
 		# @users = User.find(params[:id] )
 		# @users.destroy
-		redirect_to users_path
 	end
 
 	def user_params
 		params.require(:user).permit(:name, :email,:birthday,:gender,:password,:user_name)
+		# binding.pry
 	end
 end

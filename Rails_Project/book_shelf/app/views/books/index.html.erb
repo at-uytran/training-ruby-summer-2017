@@ -1,0 +1,26 @@
+<p>Books information</p>
+<p><%= link_to "User ", users_path %></p>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Book name</th>
+			<th>Author</th>
+			<th>Publisher</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>Book Image</th>
+			<th>Option</th>
+		</tr>
+	</thead>
+			
+	<tbody>
+			
+		<%= render partial: "book" , collection: @books %>
+
+
+	</tbody>
+</table>
+
+
+
+<p><%= link_to "new book", new_book_path %></p>
