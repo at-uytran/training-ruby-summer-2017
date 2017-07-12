@@ -5,6 +5,8 @@
 	<td><%= user.gender %></td>
 	<td><%= user.password %></td>
 	<td><%= user.user_name %></td>
+	<td><%= image_tag user.image.thumb %></td>
+
 	<td><%= link_to 'delete', user, :method => 'delete', data: {confirm: "are you sure that you want to delete user #{user.name}?"} %>/<%= link_to 'edit' , edit_user_path(user)  %>/<%= link_to 'show' , user_path(user)%></td>
 	
 </tr>
