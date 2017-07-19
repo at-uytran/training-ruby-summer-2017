@@ -1,3 +1,5 @@
+<p><%= link_to 'All Users', users_path%></p>
+
 <%= form_for(@user) do |f| %>
       <%  if  @user.errors.any?  %>
           <div  id="error_explanation">
@@ -34,13 +36,36 @@
       <%= f.label 'user name' %>
       <%= f.text_field :user_name, class: 'form-control' %><br>
 
-      <%= f.label 'avatar' %>
-      <%= f.file_field :image, class: 'form-control' %><br>
-      <%= image_tag f.object.image.thumb , class: 'form-control' %><br>
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar, class: 'form-control' %><br>
+
+      <%= f.label :thumb %>
+      <%= image_tag f.object.avatar , class: 'form-control' %><br>
+
+      <%= f.label :uid %>
+      <%= f.text_field :uid, class: 'form-control' %>
+
+      <%= f.label :provider %>
+      <%= f.select :provider, ['facebook','email','google +'] , class: 'form-control' %>
 
 
-      <%= f.submit "Save changes", class: "btn btn-primary" %><br>
+      <%= f.label :role %>
+      <%= f.text_field :role, class: 'form-control' %>
+
+
+      <%= f.submit "Save changes", onclick: 'validate()', class: "btn btn-primary" %><br>
 <% end %>
 
-      <button onclick="back()">Back</button>
+      <button onclick="back();">Back</button>
+<script>
+  function validate(){
+    var x = document.forms['new_user']["elements"]["user_email"].value;
+    var y = document.forms['new_user']['user[provider]'].value;
+    if (x== ''&& y == 'email'){
+      alert('khong duoc de trong email');
+      return window.location.reload();
+    }
+  }
+
+</script>
 

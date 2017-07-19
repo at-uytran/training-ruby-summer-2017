@@ -1,4 +1,6 @@
 <p>Book Information </p>
+<p><%= link_to 'All Users', users_path%></p>
+
 <%= form_for(@user) do |f| %>
       
       <%= f.label :name %>
@@ -20,8 +22,21 @@
       <%= f.label 'user name' %>
       <%= f.text_field :user_name, class: 'form-control' %><br>
 
-      <%= f.label 'avatar' %>
-      <%= image_tag f.object.image.thumb , class: 'form-control' %><br>      
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar, class: 'form-control' %><br>
+
+      <%= f.label :thumb %>
+      <%= image_tag f.object.avatar.thumb , class: 'form-control' %><br>
+
+      <%= f.label :uid %>
+      <%= f.text_field :uid, class: 'form-control' %>
+
+      <%= f.label :provider %>
+      <%= f.text_field :provider , class: 'form-control' %>
+
+
+      <%= f.label :role %>
+      <%= f.text_field :role, class: 'form-control' %>
 
 <% end %>
       <button onclick="back()">Back</button>

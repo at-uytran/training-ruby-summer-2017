@@ -1,23 +1,24 @@
-
 <p>User</p>
 
-<p><%= link_to "Books " , books_path %></p>
+<p><%= link_to 'Books' , books_path%></p>
 
-<table class="table table-bordered">
+<table >
 <thead>
 <tr>
-	<th>Ten</th>
 	<th>Email</th>
-	<th>Birthday</th>
-	<th>gender</th>
-	<th>Password</th>
 	<th>UserName</th>
+	<th>Avatar</th>
+	<th>Role</th>
 	<th>Option</th>
 </tr>
 </thead>
 <tbody>
 	<%= render partial: 'user', collection: @users %>
 </tbody>
-	</table>
+</table>
+
+<%= link_to 'previous', users_path(page: @page-1) %>
+
+<%=  link_to 'next page', users_path(page: @page+1) %>
 
 <%= link_to 'New user' , new_user_path %>

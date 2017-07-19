@@ -1,5 +1,6 @@
 <p>Book Information</p>
-<p>Book name:</p>
+<p><%= link_to 'All Books', books_path%></p>
+
 <%= form_for @book do |f|%>
             <%= f.label :name %>
             <%= f.text_field :name, class: 'form-control' %><br>
@@ -7,17 +8,11 @@
             <%= f.label :author %>
             <%= f.text_field :author, class: 'form-control' %><br>
 
-            <%= f.label :publisher %>
-            <%= f.text_field :publisher, class: 'form-control' %><br>
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control' %><br>
 
-            <%= f.label :description %>
-            <%= f.text_field :description, class: 'form-control' %><br>
-
-            <%= f.label :price %>
-            <%= f.text_field :price, class: 'form-control' %><br>
-
-            <%= f.label 'image' %>
-            <%= image_tag f.object.image.thumb,class: 'form-control'  %><br>
-           
+            <%= f.label :isn %>
+            <%= f.text_field :isn, class: 'form-control' %><br>
+      
 <% end %>
 <button onclick="back()">Back</button>

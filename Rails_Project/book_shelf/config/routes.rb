@@ -38,12 +38,19 @@ Rails.application.routes.draw do
 
 # end
 resources :resumes, only: [:index, :new, :create, :destroy]
-root "users#index"
+get "books/items"
+get "books/search"
+get  '/register',  to: 'users#new'
 
+get '/login' => 'sessions#new'
+post '/login' => 'sessions#create'
+get '/logout' => 'sessions#destroy'
 
+# get "login"
+root "books#items"
 resources :users
 # root 'users#index'
-
+resources :orders
 resources :books
 # resources :post do
 # 	collection do 

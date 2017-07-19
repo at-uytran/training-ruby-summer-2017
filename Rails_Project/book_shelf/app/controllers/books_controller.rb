@@ -1,6 +1,16 @@
 class BooksController < ApplicationController
 	
 	layout 'application'
+	def items
+		@books = Book.all
+	end
+	
+	def search
+		# @books = Book.joins(:orders).author_search(params[:search_value])
+		@book = Book.search_author(params[:search_value])
+		# binding.pry
+	end
+
 
 	def index
 		@books = Book.all
@@ -19,6 +29,7 @@ class BooksController < ApplicationController
 			render 'new'
 		end
 	end
+	
 	def destroy
 	    Book.find(params[:id]).destroy
 	    flash[:success] = "Book deleted"
@@ -49,6 +60,6 @@ class BooksController < ApplicationController
 	end
 
 	def book_params
-		params.require(:book).permit(:name, :author,:publisher,:description,:price,:image)
+		params.require(:book).permit(:name, :author,:title,:isn)
 	end
 end
