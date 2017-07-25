@@ -1,0 +1,12 @@
+	<% @results.each do |row|%>
+	<div class="item">
+			<ul>
+			<li><a href="#"><img src="<%= url(row['bookimage']) %>"></a></li>
+			<li><a href="#"><%=row['bookname'].to_s%></a></li>
+			<li><%=row['description'].to_s%></li>
+			<li><%=row['author'].to_s%></li>
+			<li><%=row['price'].to_s%></li>
+			<li><a href="#">Thêm vào giỏ</a></li>
+			</ul>
+		</div>
+	<%end%>

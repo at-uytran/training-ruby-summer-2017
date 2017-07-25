@@ -1,0 +1,22 @@
+
+	<form accept-charset="UTF-8" action="/edit"  method="post" enctype="multipart/form-data">
+		<% @results.each do |row|%>
+			<label>Id</label><br>
+			<input type="text" name="id" value="<%= row[ 'id' ] %>"><br>
+			<label>Ten Sach</label><br>
+			<input type="text" name="bookname" value="<%= row[ 'bookname' ] %>"><br>
+			<label>Nha Xuat Ban</label><br>
+			<input type="text" name="publisher" value="<%= row['publisher'] %>"><br>
+			<label>Tac gia</label><br>
+			<input type="text" name="author" value="<%= row['author'] %>"><br>
+			<label>Mo ta sach</label><br>
+			<input type="text" name="description" value="<%= row['description'] %>"><br>
+			<label>Hinh sach</label><br>
+			<input type="file" name="file"><br>
+			<label>Gia ban</label><br>
+			<input type="text" name="price" value="<%= row['price'] %>"><br>
+			<label>The loai sach</label><br>
+			<input type="text" name="booktype" value="<%= row['booktype'] %>"><br>
+			<%end%>
+			<button type="submit">Save</button>
+	</form>

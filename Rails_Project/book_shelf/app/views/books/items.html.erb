@@ -1,0 +1,23 @@
+<% @books.each do |book| %>
+
+<div class="new-item">
+
+	<ul >
+		<li><a><%= link_to book.name, book_path(book) %></a></li>
+		<li><a><%= link_to book.author, book_path(book) %></a></li>
+		<li><a><%= link_to book.isn, book_path(book) %></a></li>
+	</ul>
+
+</div>
+
+<% end %>
+
+<%= link_to 'previous', root_path(page: @page-1) %>
+
+<% for i in 1..@allpage %>
+<%= link_to i, root_path( page: i)%>
+<% end %>
+
+
+<%=  link_to 'next page', root_path(page: @page+1) %>
+

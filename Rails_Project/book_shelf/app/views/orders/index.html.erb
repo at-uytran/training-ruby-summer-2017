@@ -1,0 +1,21 @@
+<p>Books information</p>
+<p><%= link_to "User ", users_path %>
+
+<table>
+
+	<thead>
+		<tr>
+			<th>User name</th>
+			<th>Books</th>
+			<th>Quantity</th>
+			<th>Option</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render partial: "order" , collection: @orders %>
+	</tbody>
+</table>
+<%= link_to "New book", new_book_path  %></p>
+
+
+

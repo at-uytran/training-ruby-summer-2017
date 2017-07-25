@@ -1,0 +1,10 @@
+<p>Book Information</p>
+<p><%= link_to 'All Books', books_path%></p>
+
+<p><%= link_to @book.name, book_path(@book) %></p>
+<p><%= @book.title %></p>
+<p><%= @book.author %></p>
+<p><%= @book.isn %></p>
+
+
+<button onclick="back()">Back</button>
