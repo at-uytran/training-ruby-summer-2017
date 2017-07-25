@@ -1,42 +1,11 @@
 <p>Book Information </p>
 <p><%= link_to 'All Users', users_path%></p>
 
-<%= form_for(@user) do |f| %>
-      
-      <%= f.label :name %>
-      <%= f.text_field :name %><br>
+<a><%= link_to image_tag(@user.avatar.thumb), user_path(@user)  %></a>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %><br>
-
-      
-      <%= f.label :birthday %>
-      <%= f.date_field :birthday, class: 'form-control' %><br>
-
-      <%= f.label :gender %>
-      <%= f.text_field :gender, class: 'form-control' %><br>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %><br>
-
-      <%= f.label 'user name' %>
-      <%= f.text_field :user_name, class: 'form-control' %><br>
-
-      <%= f.label :avatar %>
-      <%= f.file_field :avatar, class: 'form-control' %><br>
-
-      <%= f.label :thumb %>
-      <%= image_tag f.object.avatar.thumb , class: 'form-control' %><br>
-
-      <%= f.label :uid %>
-      <%= f.text_field :uid, class: 'form-control' %>
-
-      <%= f.label :provider %>
-      <%= f.text_field :provider , class: 'form-control' %>
+<p><%= link_to @user.user_name, user_path(@user) %></p>
+<p><%= @user.email %></p>
+<p><%= @user.birthday %></p>
 
 
-      <%= f.label :role %>
-      <%= f.text_field :role, class: 'form-control' %>
-
-<% end %>
-      <button onclick="back()">Back</button>
+<button onclick="back()">Back</button>

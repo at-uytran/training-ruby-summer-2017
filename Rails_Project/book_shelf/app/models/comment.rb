@@ -10,8 +10,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-
+# nothing
 class Comment < ApplicationRecord
-	belongs_to :user
-	belongs_to :book
+  belongs_to :user
+  belongs_to :book
 end

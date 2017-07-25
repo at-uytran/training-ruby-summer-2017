@@ -63,9 +63,12 @@ ActiveRecord::Schema.define(version: 20170717075616) do
     t.string   "avatar"
     t.string   "provider"
     t.string   "uid"
-    t.integer  "role",            default: 0
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "role",              default: 0
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false
+    t.datetime "activated_at"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
 end

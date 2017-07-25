@@ -6,12 +6,9 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#
-
+# nothing
 class Cart < ApplicationRecord
-	belongs_to :user
-
-	has_many :orders
-	# has_many :books, through: :orders
-
+  belongs_to :user
+  has_many :orders
+  # has_many :books, through: :orders
 end

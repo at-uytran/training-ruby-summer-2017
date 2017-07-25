@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 # 		get 'most_like'
 # 	end
 # 	resources :comments do
-		
+    
 # 		resources :users
 
 # 	end
@@ -69,6 +69,7 @@ resources :users
 resources :orders
 resources :carts
 resources :books
+resources :account_activations, only: [:edit]
 
 end
 

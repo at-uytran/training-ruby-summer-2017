@@ -1,18 +1,10 @@
 <p>Book Information</p>
 <p><%= link_to 'All Books', books_path%></p>
 
-<%= form_for @book do |f|%>
-            <%= f.label :name %>
-            <%= f.text_field :name, class: 'form-control' %><br>
+<p><%= link_to @book.name, book_path(@book) %></p>
+<p><%= @book.title %></p>
+<p><%= @book.author %></p>
+<p><%= @book.isn %></p>
 
-            <%= f.label :author %>
-            <%= f.text_field :author, class: 'form-control' %><br>
 
-            <%= f.label :title %>
-            <%= f.text_field :title, class: 'form-control' %><br>
-
-            <%= f.label :isn %>
-            <%= f.text_field :isn, class: 'form-control' %><br>
-      
-<% end %>
 <button onclick="back()">Back</button>
