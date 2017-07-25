@@ -4,7 +4,6 @@
 	<td><%= book.title %></td>
 	<td><%= book.isn %></td>
 
-
 	<td><%= link_to "edit", edit_book_path(book) %>/
 	<%= link_to "delete",book,  :method => 'delete' , data: {confirm: "are you sure that you want to delete book#{book.name}?"} %>/
 	<%= link_to "show", book_path(book) %></td>

@@ -181,7 +181,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
-  bcrypt
+  bcrypt (~> 3.1.7)
   bootstrap-sass (~> 2.3.2)
   byebug
   carrierwave (~> 0.10.0)

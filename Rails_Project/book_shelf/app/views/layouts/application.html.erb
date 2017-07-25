@@ -8,6 +8,7 @@
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	<meta charset="utf-8">
+	
 </head>
 <body>
 <header>
@@ -28,7 +29,11 @@
 			<li><a href="/">TRANG CHỦ</a></li>
 			<li><a href="#">GIỚI THIỆU</a></li>
 			<li><p><%= link_to "QUẢN LÝ SÁCH", books_path %></p></a></li>
-			<li><a href="#">GIỎ HÀNG</a></li>
+			<% if current_user %>
+			<li><a><%= link_to 'GIỎ HÀNG', cart_path(current_user) %></a></li>
+			<%end%>
+
+			
 			<li>
 			<% if current_user %>
 			  <%= current_user.name %> | <%= link_to "Logout", '/logout' %>

@@ -1,6 +1,6 @@
 <p><%= link_to 'All Books', books_path%></p>
 
-<%= form_for (@book), thml: {multipart: true}  do |f| %>
+<%= form_for (@book), html: {multipart: true}  do |f| %>
             <% #binding.pry %>
             <%  if  @book.errors.any?  %>
                 <div  id="error_explanation">

@@ -19,11 +19,14 @@ class Book < ApplicationRecord
 			scoped
 		end
 	end
+
 	scope :author_search,  -> author {where(['author LIKE ?', "%#{author}%"])}
 	# binding.pry
 	scope :search_author, lambda { |author_name| 
-		joins(:orders).where("books.author like :author_name", author_name: author_name )
+		joins(:order).where('books.author like :authorname', authorname: author_name )
+		binding.pry
 	}
+
 
 
 	# has_many :orders

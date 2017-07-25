@@ -38,8 +38,8 @@ class User < ApplicationRecord
  	mount_uploader :avatar, ImageUploader
  	enum role: ['member','mod','admin']
  	# validates uniqueness: {:uid, :provider}
- 	 	validates :avatar, file_size: {less_than: 5.megabytes}
- 	validates :uid,  uniqueness: {scope: :provider}	
+ 	validates :avatar, file_size: {less_than: 5.megabytes}
+ 	validates :uid,  uniqueness: {scope: :provider}	,on: :update
  	validates :email, presence: true, :if => Proc.new {provider == 'email'}
  	# validate :birthday
  	enum gender: %w(male female gay less other)

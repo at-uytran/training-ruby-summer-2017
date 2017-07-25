@@ -37,6 +37,22 @@ Rails.application.routes.draw do
 # 	end
 
 # end
+
+# resources :post do
+#   collection do 
+#     get 'most_like'
+#   end
+#   member do
+#     get 'most_comment'
+#   end
+#   # resources :comments do
+#   #   # resources :users
+#   # end
+
+# end
+
+
+
 resources :resumes, only: [:index, :new, :create, :destroy]
 get "books/items"
 get "books/search"
@@ -45,25 +61,14 @@ get  '/register',  to: 'users#new'
 get '/login' => 'sessions#new'
 post '/login' => 'sessions#create'
 get '/logout' => 'sessions#destroy'
-
+get '/signup' => 'users#new'
 # get "login"
 root "books#items"
 resources :users
 # root 'users#index'
 resources :orders
+resources :carts
 resources :books
-# resources :post do
-# 	collection do 
-# 		get 'most_like'
-# 	end
-# 	member do
-# 		get 'most_comment'
-# 	end
-# 	# resources :comments do
-# 	# 	# resources :users
-# 	# end
-
-# end
 
 end
 

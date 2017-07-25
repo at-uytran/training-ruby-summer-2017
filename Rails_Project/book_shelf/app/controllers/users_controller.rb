@@ -1,19 +1,17 @@
 class UsersController < ApplicationController
 
 
-	def login
-	end
-	
 	def index
 		@page = params[:page].to_i 
-		if @page == 0
-			@page =1
-		end
+		@page =1 if @page == 0
+		@allpage = User.all.count/10
 		@users = User.all.limit(10).offset((@page-1)*10)
 	end
+
 	def new
 		@user = User.new
 	end
+
 	def create
 		@user = User.new(user_params)
 		if @user.save
@@ -47,7 +45,9 @@ class UsersController < ApplicationController
 	    @user = User.find(params[:id])
 	end
 
-	def user_params
-		params.require(:user).permit(:name, :email,:birthday,:gender,:password,:user_name,:avatar,:uid,:provider,:role)
-	end
+	private
+
+		def user_params
+			params.require(:user).permit(:name, :email,:birthday,:gender,:password,:user_name,:avatar,:uid,:provider,:role)
+		end
 end

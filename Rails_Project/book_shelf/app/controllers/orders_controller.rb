@@ -3,13 +3,14 @@ class OrdersController < ApplicationController
 
 
 	def index
-		# @orders = Order.joins(:cart).user_order
-		# binding.pry
 		@orders = Order.all
 	end
 
 	def show
-		@orders = Order.joins(:cart).order(cart_id: :asc)
-		
+		@userid = User.find(session[:user_id])
+		# @orders = Order.joins('INNER JOIN carts on orders.cart_id = carts.id').where('carts.user_id = :user_id', user_id: @userid.id).order(cart_id: :asc)
+		@orders = Order.joins(:cart).where('carts.user_id = :user_id', user_id: @userid.id).order(cart_id: :asc)
+
+		# binding.pry
 	end
 end

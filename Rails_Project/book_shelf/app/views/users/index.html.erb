@@ -19,6 +19,9 @@
 
 <%= link_to 'previous', users_path(page: @page-1) %>
 
+	<% for i in 1..@allpage +1%>
+			<%= link_to i, users_path( page: i)%>
+<% end %>
 <%=  link_to 'next page', users_path(page: @page+1) %>
 
 <%= link_to 'New user' , new_user_path %>

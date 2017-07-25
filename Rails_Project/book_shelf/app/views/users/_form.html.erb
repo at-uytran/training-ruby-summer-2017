@@ -1,6 +1,6 @@
 <p><%= link_to 'All Users', users_path%></p>
 
-<%= form_for(@user) do |f| %>
+<%= form_for (@user), :multipart => true do |f| %>
       <%  if  @user.errors.any?  %>
           <div  id="error_explanation">
               <h2>
@@ -40,7 +40,7 @@
       <%= f.file_field :avatar, class: 'form-control' %><br>
 
       <%= f.label :thumb %>
-      <%= image_tag f.object.avatar , class: 'form-control' %><br>
+      <%= image_tag f.object.avatar.thumb , class: 'form-control' %><br>
 
       <%= f.label :uid %>
       <%= f.text_field :uid, class: 'form-control' %>
@@ -53,7 +53,7 @@
       <%= f.text_field :role, class: 'form-control' %>
 
 
-      <%= f.submit "Save changes", onclick: 'validate()', class: "btn btn-primary" %><br>
+      <%= f.submit yield(:button_text), onclick: 'validate()', class: "btn btn-primary" %><br>
 <% end %>
 
       <button onclick="back();">Back</button>

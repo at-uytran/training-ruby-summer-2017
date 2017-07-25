@@ -2,18 +2,27 @@ class BooksController < ApplicationController
 	
 	layout 'application'
 	def items
-		@books = Book.all
+		@page = params[:page].to_i 
+		@page =1 if @page == 0
+		@allpage = Book.all.count/12
+
+		@books = Book.all.limit(12).offset((@page-1)*12)
 	end
 	
 	def search
 		# @books = Book.joins(:orders).author_search(params[:search_value])
-		@book = Book.search_author(params[:search_value])
-		# binding.pry
+		authorname = params[:search_value]
+		@book = Book.all.joins(:orders).where('books.author like :authorname', authorname: authorname )
+		binding.pry
 	end
 
 
 	def index
-		@books = Book.all
+		@page = params[:page].to_i 
+		@page =1 if @page == 0
+		@allpage = Book.all.count/10
+		# binding.pry
+		@books = Book.all.limit(10).offset((@page-1)*10)
 
 	# binding.pry
 	end
