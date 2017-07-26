@@ -14,6 +14,6 @@ class Order < ApplicationRecord
   belongs_to :cart
   belongs_to :book
   # scope 
-  # scope :user_order, -> {where('carts.user_id =',"%#{users.id]}%" )} 
+  # scope :user_order, -> { where('carts.user_id = ',"%#{users.id]}%" ) } 
   # binding.pry
 end
