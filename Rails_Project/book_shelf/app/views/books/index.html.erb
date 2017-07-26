@@ -1,0 +1,35 @@
+<p>Books information</p>
+<p><%= link_to "User ", users_path %>
+
+<table >
+
+	<thead>
+		<tr>
+			<th>Book name</th>
+			<th>Author</th>
+			<th>Title</th>
+			<th>Isn</th>
+			<th>Option</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render partial: "book" , collection: @books %>
+	</tbody>
+</table>
+<%= link_to 'previous', books_path(page: @page-1) %>
+
+<% for i in 1..@allpage + 1 %>
+<%= link_to i, books_path( page: i)%>
+<% end %>
+
+
+<%=  link_to 'next page', books_path(page: @page+1) %>
+
+
+
+
+
+<%= link_to "New book", new_book_path  %></p>
+
+
+

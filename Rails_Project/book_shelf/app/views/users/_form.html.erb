@@ -1,0 +1,71 @@
+<p><%= link_to 'All Users', users_path%></p>
+
+<%= form_for (@user), :multipart => true do |f| %>
+      <%  if  @user.errors.any?  %>
+          <div  id="error_explanation">
+              <h2>
+                  <%= pluralize(@user.errors.count,  "error")  %>  prohibited
+                  this  article from  being saved:
+              </h2>
+              <div class="alert alert-error">
+                        <ul>
+                        <%  @user.errors.full_messages.each  do  |msg| %>
+                            <li><%= msg %></li>
+                        <%  end %>
+                    </ul>
+                    </div>
+          </div>
+      <%  end %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %><br>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %><br>
+
+      
+      <%= f.label :birthday %>
+      <%= f.date_field :birthday, class: 'form-control' %><br>
+
+      <%= f.label :gender %>
+      <%= f.text_field :gender, class: 'form-control' %><br>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %><br>
+
+      <%= f.label 'user name' %>
+      <%= f.text_field :user_name, class: 'form-control' %><br>
+
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar, class: 'form-control' %><br>
+
+      <%= f.label :thumb %>
+      <%= image_tag f.object.avatar.thumb , class: 'form-control' %><br>
+
+      <%= f.label :uid %>
+      <%= f.text_field :uid, class: 'form-control' %>
+
+      <%= f.label :provider %>
+      <%= f.select :provider, ['facebook','email','google +'] , class: 'form-control' %>
+
+
+      <%= f.label :role %>
+      <%= f.text_field :role, class: 'form-control' %>
+
+
+      <%= f.submit yield(:button_text), onclick: 'validate()', class: "btn btn-primary" %><br>
+<% end %>
+
+      <button onclick="back();">Back</button>
+<script>
+  function validate(){
+    var x = document.forms['new_user']["elements"]["user_email"].value;
+    var y = document.forms['new_user']['user[provider]'].value;
+    if (x== ''&& y == 'email'){
+      alert('khong duoc de trong email');
+      return window.location.reload();
+    }
+  }
+
+</script>
+

@@ -1,0 +1,11 @@
+<p>Book Information </p>
+<p><%= link_to 'All Users', users_path%></p>
+
+<a><%= link_to image_tag(@user.avatar.thumb), user_path(@user)  %></a>
+
+<p><%= link_to @user.user_name, user_path(@user) %></p>
+<p><%= @user.email %></p>
+<p><%= @user.birthday %></p>
+
+
+<button onclick="back()">Back</button>
