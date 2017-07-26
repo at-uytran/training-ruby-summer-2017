@@ -29,8 +29,8 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   # config.action_mailer.default_url_options = { host: config.app_domain }
   # ActionMailer::Base.smtp_settings = {
-  #   :user_name => 'ntkien92',
-  #   :password => 'kiendu92',
+  #   :user_name => '',
+  #   :password => '',
   #   :domain => 'bookshelf.com',
   #   :address => 'smtp.sendgrid.net',
   #   :port => 587,
