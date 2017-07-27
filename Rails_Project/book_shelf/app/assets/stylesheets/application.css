@@ -1,6 +1,7 @@
-@import "bootstrap-sprockets";
-
+/*@import "bootstrap-sprockets";
 @import "bootstrap";
+*/
+/**= require bootstrap.min*/
 
 a:hover {
   color: #95d6fa; }
@@ -28,8 +29,6 @@ footer {
 .socialconnect {
   float: left;
   width: 33%; }
-
-
 
 
 .clr::after {
@@ -203,7 +202,7 @@ table, th, td {
   margin-top: 10%;
   margin-right: 10%; }
 
-form {
+/*form {
   border: 1px solid #ebebeb;
   background-color: #d9e4e9;
   margin-right: 10%;
@@ -225,7 +224,7 @@ form {
     margin-bottom: 5px;
     margin-top: 5px;
     border-style: inset; }
-
+*/
 #setcal {
   line-height: 30px; }
 
@@ -263,3 +262,4 @@ form {
     color: #000; }
     .left-menu a:hover {
       color: #95d6fa; }
+

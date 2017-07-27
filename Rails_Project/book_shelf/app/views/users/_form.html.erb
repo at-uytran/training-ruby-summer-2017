@@ -1,5 +1,5 @@
 <p><%= link_to 'All Users', users_path%></p>
-
+<form class="form-group">
 <%= form_for (@user), :multipart => true do |f| %>
       <%  if  @user.errors.any?  %>
           <div  id="error_explanation">
@@ -40,7 +40,7 @@
       <%= f.file_field :avatar, class: 'form-control' %><br>
 
       <%= f.label :thumb %>
-      <%= image_tag f.object.avatar.thumb , class: 'form-control' %><br>
+      <%= image_tag f.object.avatar.thumb  %><br>
 
       <%= f.label :uid %>
       <%= f.text_field :uid, class: 'form-control' %>
@@ -56,6 +56,7 @@
       <%= f.submit yield(:button_text), onclick: 'validate()', class: "btn btn-primary" %><br>
 <% end %>
 
+</form>
       <button onclick="back();">Back</button>
 <script>
   function validate(){

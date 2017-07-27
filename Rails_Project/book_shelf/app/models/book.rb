@@ -8,9 +8,9 @@
 #  title  :string(255)
 #  isn    :string(255)
 #
-#:nodoc:
+# nodoc:
 class Book < ApplicationRecord
-  validates :name,	presence:	true, length: {minimum: 5}
+  validates :name, presence: true, length: { minimum: 5 }
   # mount_uploader :image, ImageUploader
 
   def self.search(search)
@@ -21,12 +21,10 @@ class Book < ApplicationRecord
     end
   end
 
-  scope :author_search, -> author { where(['author LIKE ?', "%#{author}%"]) }
-  # binding.pry
+  scope :author_search, ->(author) { where(['author LIKE ?', "%#{author}%"]) }
   scope :search_author, lambda { |author_name|
     joins(:order).where('books.author like :authorname', authorname: author_name)
   }
-  # has_many :orders
   has_many :carts, through: :orders
   has_many :comments
 end
