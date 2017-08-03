@@ -1,0 +1,48 @@
+
+<body>
+<header>
+<div class="first">
+  <div class="container">
+    <div class="home">
+    <%= image_tag 'logo.png'%>
+      <h1>BOOKS STORE</h1>
+      <h2>BOOKS for a fantastic life</h2>
+    </div>
+    <div class="support">
+        </div>  
+  </div>
+</div>
+<nav class="menu">
+  <div class="container">
+    <ul>
+      <li><a href="/">TRANG CHỦ</a></li>
+      <li><a href="#">GIỚI THIỆU</a></li>
+      <li><p><%= link_to "QUẢN LÝ SÁCH", books_path %></p></a></li>
+      <% if current_user %>
+      <li><a><%= link_to 'GIỎ HÀNG', cart_path(current_user) %></a></li>
+      <%end%>
+      <li>
+      <% if current_user %>
+        <%= link_to current_user.name ,user_path(current_user)%> | <%= link_to "Logout", '/logout' %>
+      <% else %>
+        <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+      <% end %>
+      </li>
+    </ul>
+    <div class="form-search">
+      <form action="/books/search" method="get" accept-charset="utf-8">
+        <input type="text" name="search_value" value="" class="form-control">
+        <button class="btn-info" >Search</button>
+        
+      </form>
+    </div>
+  </div>  
+</nav>
+<div class="middle" >
+    <div class="container">
+      <span>
+        <a href="/">TRANG CHỦ/</a>
+        <a href="books">BOOK LIST</a>
+      </span>
+    </div>
+</div>

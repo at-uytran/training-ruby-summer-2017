@@ -1,28 +1,32 @@
 # :nodoc:
 class BooksController < ApplicationController
   layout 'application'
+  before_action :paging, only: %i[items index]
 
-  def items
-    @page = params[:page].to_i
-    @page = 1 if @page.zero?
+  def paging
     @allpage = Book.all.count / 12
+    @allpage = 1 if @allpage.zero?
+    @page = params[:page].to_i
+    @page = 1 if @page <= 0
+    @page = @allpage if @page > @allpage
     @books = Book.all.limit(12).offset((@page - 1) * 12)
   end
 
+  def items
+    # items method
+  end
+
+  def search_book
+    # search book
+  end
+
   def search
-    # @books = Book.joins(:orders).author_search(params[:search_value])
-    authorname = params[:search_value]
-    @book = Book.all.joins(:orders).where('books.author like
-    :authorname', authorname: authorname)
+    bookname = params[:search_value]
+    @books = Book.search(bookname)
   end
 
   def index
-    @page = params[:page].to_i
-    @page = 1 if @page.zero?
-    @allpage = Book.all.count / 10
-    # binding.pry
-    @books = Book.all.limit(10).offset((@page - 1) * 10)
-    # binding.pry
+    # index method
   end
 
   def new
@@ -61,8 +65,6 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    # @books = Book.find(params[:id] )
-    # @books.destroy
   end
 
   def book_params

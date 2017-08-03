@@ -15,7 +15,7 @@ class Book < ApplicationRecord
 
   def self.search(search)
     if search
-      where(['book LIKE ?', "%#{search}%"])
+      where(['name LIKE ?', "%#{search}%"])
     else
       scoped
     end
@@ -25,6 +25,7 @@ class Book < ApplicationRecord
   scope :search_author, lambda { |author_name|
     joins(:order).where('books.author like :authorname', authorname: author_name)
   }
+  has_many :orders
   has_many :carts, through: :orders
   has_many :comments
 end

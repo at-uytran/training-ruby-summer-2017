@@ -1,12 +1,16 @@
-<div class="container">
-<div class="row">
-	
-	<div class="col-md-6 col-md-offset-12">
-		<ul>
-		<li><a href="/">TRANG CHỦ</a></li>
-			<li><a href="#">GIỚI THIỆU</a></li>
-			<li><p><%= link_to "QUẢN LÝ SÁCH", books_path %></p></a></li>
-			<li><a href="/book/shopcart">GIỎ HÀNG</a></li>
-			</ul>
-	</div>
+<div class="left-menu">
+  <aside class="left-sidebar">
+    <ul class="list-group">
+      <li class="list-group-item"><%= link_to "New Book" , new_book_path %></li>
+      <li class="list-group-item"><%= link_to "All Books" , books_path %></li>
+      <li class="list-group-item"><%= link_to "All Users" , users_path %></li>
+      <li class="list-group-item">
+      <% if current_user %>
+        <%= link_to "My orders", order_path(current_user) %>
+      <% else %>
+        <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+      <% end %>
+      </li>
+    </ul>
+  </aside>
 </div>
