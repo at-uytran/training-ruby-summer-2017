@@ -9,7 +9,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-# nodoc
+
 ActiveRecord::Schema.define(version: 20170717075616) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,28 +46,26 @@ ActiveRecord::Schema.define(version: 20170717075616) do
     t.index ["cart_id"], name: "index_orders_on_cart_id", using: :btree
   end
 
-  create_table "resumes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "attachment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
     t.date     "birthday"
     t.integer  "gender"
     t.string   "password_digest"
+    t.string   "password_confirmation_digest"
     t.string   "user_name"
     t.string   "avatar"
     t.string   "provider"
     t.string   "uid"
-    t.integer  "role",              default: 0
+    t.integer  "role",                         default: 0
     t.string   "activation_digest"
-    t.boolean  "activated",         default: false
+    t.datetime "activation_sent_at"
+    t.boolean  "activated",                    default: false
     t.datetime "activated_at"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.string   "reset_digest"
+    t.datetime "reset_sent_at"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
+
 end

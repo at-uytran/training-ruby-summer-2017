@@ -1,11 +1,12 @@
-<p>Book Information </p>
 <p><%= link_to 'All Users', users_path%></p>
+<p>User information: </p>
+<p><%= link_to 'Edit your profile', edit_user_path(current_user)%></p>
+<div class="show">
+  <a><%= link_to image_tag(@user.avatar.thumb, :class => "img-circle",:alt => "Cinque Terre"), user_path(@user)  %></a>
 
-<a><%= link_to image_tag(@user.avatar.thumb, :class => "img-rounded",:alt => "Cinque Terre"), user_path(@user)  %></a>
+  <p>User Name: <%= link_to @user.user_name, user_path(@user) %></p>
+  <p>User Email : <%= @user.email %></p>
+  <p>Birthday : <%= @user.birthday %></p>
 
-<p><%= link_to @user.user_name, user_path(@user) %></p>
-<p><%= @user.email %></p>
-<p><%= @user.birthday %></p>
-
-
-<button onclick="back()">Back</button>
+  <button onclick="back()" class="btn-warning">Back</button>
+</div>

@@ -8,7 +8,7 @@ a:hover {
 
 footer {
   background-color: #3399ff;
-  height: 250px;
+  height: 170px;
   width: 100%; }
 
 .footinfo {
@@ -60,9 +60,11 @@ h2 {
     width: 70px;
     height: 70px; }
   .home h1, .home h2 {
-    line-height: 20px;
+    line-height: 7px;
     padding-left: 84px; }
-
+.left-sidebar {
+  margin: 15px;
+}
 
 .container {
   max-width: 1244px;
@@ -90,6 +92,11 @@ h2 {
 .new-list {
   width: 76%;
   float: right; }
+
+.show{
+  text-align: center;
+  font-weight: bold;
+}
 
 .new-item {
   position: relative;
@@ -159,7 +166,7 @@ table, th, td {
     margin-bottom: -35px;
     float: left; }
   .menu li {
-    color: #f1f1f1;
+    color: #000;
     display: inline-block;
     margin-left: 15px;
     padding-right: 15px; }
@@ -167,7 +174,6 @@ table, th, td {
       border-right: none;
       margin-left: 45px;
       margin-right: 2px;
-      line-height: 85px;
       float: right; }
     .menu li a {
       color: brown; }
@@ -185,10 +191,10 @@ table, th, td {
   width: 60%;
   margin: 0px;
 }
-.form-search form .btn-search{
-  float: right;
+.form-search form .btn-info{
+  line-height: 23px;
   width: 30%;
-  margin: 0px;
+  margin: 3px;
 }
 
 

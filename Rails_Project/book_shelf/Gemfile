@@ -37,6 +37,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'faker'
   gem 'annotate'
+  gem 'rspec-rails','~>3.5'
 end
 
 group :development do

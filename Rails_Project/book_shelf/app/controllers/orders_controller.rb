@@ -10,5 +10,6 @@ class OrdersController < ApplicationController
     @userid = User.find(session[:user_id])
     @orders = Order.joins(:cart).where('carts.user_id =
      :user_id', user_id: @userid.id).order(cart_id: :asc)
+    # binding.pry
   end
 end

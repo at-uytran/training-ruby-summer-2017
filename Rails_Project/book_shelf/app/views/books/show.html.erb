@@ -1,10 +1,11 @@
 <p>Book Information</p>
 <p><%= link_to 'All Books', books_path%></p>
+<div class="show">
+  <p>Book Name: <%= link_to @book.name, book_path(@book) %></p>
+  <p>Title: <%= @book.title %></p>
+  <p>Author: <%= @book.author %></p>
+  <p>Isn: <%= @book.isn %></p>
 
-<p><%= link_to @book.name, book_path(@book) %></p>
-<p><%= @book.title %></p>
-<p><%= @book.author %></p>
-<p><%= @book.isn %></p>
+  <button onclick="back()" class="btn-warning">Back</button>
 
-
-<button onclick="back()">Back</button>
+</div>

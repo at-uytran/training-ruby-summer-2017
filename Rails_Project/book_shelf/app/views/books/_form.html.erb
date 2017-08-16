@@ -30,7 +30,7 @@
             <%= f.label :isn %>
             <%= f.text_field :isn, class: 'form-control' %><br>
 
-            <%= f.submit "Add book", class: "btn btn-primary" %><br>
+            <%= f.submit yield(:button_text), class: "btn btn-primary" %><br>
       <% end %>
-            <button onclick="back();">Back</button>
+            <button onclick="back();", class="btn-warning">Back</button>
 
