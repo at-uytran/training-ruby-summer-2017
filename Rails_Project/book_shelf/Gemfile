@@ -60,3 +60,8 @@ gem 'autoprefixer-rails'
 
 gem 'rubocop', '~> 0.49.1', require: false
 gem 'tabs2spaces'
+
+# comment rubocop directly on pull request
+gem 'saddler'
+gem 'saddler-reporter-github'
+gem 'rubocop-checkstyle_formatter'

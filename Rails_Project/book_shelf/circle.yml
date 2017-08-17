@@ -1,0 +1,5 @@
+test:
+  pre:
+    - chmod +x bin/run-rubocop.sh
+    - bin/run-rubocop.sh
+ 
