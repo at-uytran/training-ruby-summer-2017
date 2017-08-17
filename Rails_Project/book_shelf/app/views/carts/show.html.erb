@@ -1,9 +1,20 @@
-
-
+<table>
+  <thead>
+    <tr>
+      <th>Book Id</th>
+      <th>Quantity</th>
+      <th>Book Name</th>
+      <th>Book Information</th>
+    </tr>
+  </thead>
+  <tbody>
 <% @cart.each do |cart|%>
-	<%= cart.id %>
-	<%= cart.user_id %>
-
-
+    <tr>
+      <td><%= cart.book_id %></td>
+      <td><%= cart.quantity %></td>
+      <td><%= @book.find_by(id: cart.book_id).name %></td>
+      <td><%= link_to 'Show book', book_path(@book.find_by(id: cart.book_id)) %></td>
+    </tr>
 <%end%>
-
+  </tbody>
+</table>

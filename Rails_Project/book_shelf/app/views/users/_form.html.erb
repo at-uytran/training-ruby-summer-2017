@@ -1,6 +1,7 @@
-<p><%= link_to 'All Users', users_path%></p>
+<% provide(:title, 'Sign up') %>
 
-<%= form_for (@user), :multipart => true do |f| %>
+<p><%= link_to 'All Users', users_path %></p>
+<%= form_for @user, html: { :multipart => true} do |f| %>
       <%  if  @user.errors.any?  %>
           <div  id="error_explanation">
               <h2>
@@ -18,7 +19,7 @@
       <%  end %>
 
       <%= f.label :name %>
-      <%= f.text_field :name %><br>
+      <%= f.text_field :name, class: 'form-control' %><br>
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %><br>
@@ -28,10 +29,13 @@
       <%= f.date_field :birthday, class: 'form-control' %><br>
 
       <%= f.label :gender %>
-      <%= f.text_field :gender, class: 'form-control' %><br>
+      <%= f.select :gender, ['male','female','gay','less','other'], { :class => 'selectpicker'} %><br>
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %><br>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <%= f.label 'user name' %>
       <%= f.text_field :user_name, class: 'form-control' %><br>
@@ -40,13 +44,13 @@
       <%= f.file_field :avatar, class: 'form-control' %><br>
 
       <%= f.label :thumb %>
-      <%= image_tag f.object.avatar.thumb , class: 'form-control' %><br>
+      <%= image_tag f.object.avatar.thumb %><br>
 
       <%= f.label :uid %>
       <%= f.text_field :uid, class: 'form-control' %>
 
       <%= f.label :provider %>
-      <%= f.select :provider, ['facebook','email','google +'] , class: 'form-control' %>
+      <%= f.select :provider, ['facebook','email','google +'] , { class: 'selectpicker' }%>
 
 
       <%= f.label :role %>
@@ -56,8 +60,8 @@
       <%= f.submit yield(:button_text), onclick: 'validate()', class: "btn btn-primary" %><br>
 <% end %>
 
-      <button onclick="back();">Back</button>
-<script>
+      <button onclick="back();", class="btn-warning">Back</button>
+<!-- <script>
   function validate(){
     var x = document.forms['new_user']["elements"]["user_email"].value;
     var y = document.forms['new_user']['user[provider]'].value;
@@ -68,4 +72,4 @@
   }
 
 </script>
-
+ -->
